@@ -65,22 +65,22 @@ public class UserBL implements UserBLService {
         MimeMessage mimeMailMessage = null;
         String code = String.format("%04d",new Random().nextInt(9999));
         System.out.println(code);
-        try {
-            mimeMailMessage = javaMailSender.createMimeMessage();
-            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMailMessage, true);
-            mimeMessageHelper.setFrom(sender);
-            mimeMessageHelper.setTo(sender);
-            mimeMessageHelper.setCc(email);
-            mimeMessageHelper.setSubject("标题：Yummy验证码");
-            String sb = "<h1>欢迎您加入YUMMY！</h1>" +
-                    "<span style='font-size: 20px'>您的验证码是：</span>" +
-                    "<span style='font-size: 26px; font-weight: 600; color: #d64b29'>" + code + "</span>";
-
-            mimeMessageHelper.setText(sb, true);
-            javaMailSender.send(mimeMailMessage);
-        } catch (Exception e) {
-            System.out.println("邮件发送失败" + e.getMessage());
-        }
+//        try {
+//            mimeMailMessage = javaMailSender.createMimeMessage();
+//            MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMailMessage, true);
+//            mimeMessageHelper.setFrom(sender);
+//            mimeMessageHelper.setTo(sender);
+//            mimeMessageHelper.setCc(email);
+//            mimeMessageHelper.setSubject("标题：Yummy验证码");
+//            String sb = "<h1>欢迎您加入YUMMY！</h1>" +
+//                    "<span style='font-size: 20px'>您的验证码是：</span>" +
+//                    "<span style='font-size: 26px; font-weight: 600; color: #d64b29'>" + code + "</span>";
+//
+//            mimeMessageHelper.setText(sb, true);
+//            javaMailSender.send(mimeMailMessage);
+//        } catch (Exception e) {
+//            System.out.println("邮件发送失败" + e.getMessage());
+//        }
         return code;
     }
 
